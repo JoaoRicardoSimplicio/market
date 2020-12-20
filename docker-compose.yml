@@ -1,0 +1,18 @@
+version: '3.7'
+
+
+services:
+  db:
+    image: postgres:12.0-alpine
+    container_name: market_db
+    volumes:
+      - market_db_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=market
+      - POSTGRES_PASSWORD=market123
+      - POSTGRES_DB=market
+    ports:
+      - 5432:5432
+    
+volumes:
+  market_db_data:

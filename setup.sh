@@ -1,2 +1,2 @@
-pip install -r requirements.txt
+pip install --editable .
 sudo docker-compose up -d

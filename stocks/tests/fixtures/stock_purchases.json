@@ -1,0 +1,20 @@
+[
+    {
+        "code": "hbor3f",
+        "price": 11.72,
+        "amount": 20,
+        "date": "2020-12-22"
+    },
+    {
+        "code": "hbor3f",
+        "price": 10.59,
+        "amount": 5,
+        "date": "2020-12-21"
+    },
+    {
+        "code": "hbor3f",
+        "price": 10.89,
+        "amount": 10,
+        "date": "2020-12-20"
+    }
+]

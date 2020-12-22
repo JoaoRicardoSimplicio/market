@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'stocks.apps.StocksConfig',
-    'main.apps.MainConfig'
+    'main.apps.MainConfig',
+
+    'pytest'
 ]
 
 MIDDLEWARE = [

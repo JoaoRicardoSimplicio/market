@@ -34,12 +34,13 @@ def get_stock_object_information(stock_code):
 
 
 def build_stock_object_information(stock):
-    stock_information = {
-        'code': stock.code,
-        'price': stock.price,
-        'description': stock.description,
-    }
-    return stock_information
+    if stock:
+        stock_information = {
+            'code': stock.code,
+            'price': stock.price,
+            'description': stock.description,
+        }
+        return stock_information
 
 
 def get_amount_stocks_from_user():

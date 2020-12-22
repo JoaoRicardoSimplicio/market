@@ -10,25 +10,27 @@ def create_stock_table_header():
 
 
 def format_stock_information(stock):
-    stock_information = {}
-    stock_information['code'] = stock['code']
-    stock_information['price'] = stock['price']
-    if 'amount' in stock:   
-        stock_information['amount'] = stock['amount']
-    else:
-        stock_information['amount'] = None
-    if 'date' in stock:
-        stock_information['date'] = stock['date']
-    else:
-        stock_information['date'] = None
-    return stock_information
+    if stock:
+        stock_information = {}
+        stock_information['code'] = stock['code']
+        stock_information['price'] = stock['price']
+        if 'amount' in stock:   
+            stock_information['amount'] = stock['amount']
+        else:
+            stock_information['amount'] = None
+        if 'date' in stock:
+            stock_information['date'] = stock['date']
+        else:
+            stock_information['date'] = None
+        return stock_information
 
 
 def create_stock_table_row(table, stock_information):
     stock_information = format_stock_information(stock=stock_information)
-    table.add_row(
-        [stock_information['code'], stock_information['price'], stock_information['amount'], stock_information['date']]
-    )
+    if stock_information:
+        table.add_row(
+            [stock_information['code'], stock_information['price'], stock_information['amount'], stock_information['date']]
+        )
 
 
 def create_stock_table(stock_information):

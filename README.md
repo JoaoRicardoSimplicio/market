@@ -27,6 +27,8 @@ You can run the package as follows:
     (env) $ market STOCK_CODE       # Replace STOCK_CODE by the desired code
 ```
 
+#### Buy Stock
+
 You can run this command to buy stock:
 
 ```bash
@@ -39,17 +41,23 @@ Enter the desired quantity when requested
     Inform the quantity (sale or purchase):
 ```
 
-You can run this command to sell stock:
-
-```bash
-    (env) $ market STOCK_CODE --sell
-```
+#### See your purchases 
 
 You can see all your purchases:
 
 ```bash
     (env) $ market STOCK_CODE --purchases
 ```
+
+#### Sell Stock 
+
+You can run this command to sell stock:
+
+```bash
+    (env) $ market STOCK_CODE --sell
+```
+
+#### See your sales 
 
 You can see all your sales:
 

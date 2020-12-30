@@ -22,6 +22,7 @@ class StockBuy(models.Model):
     amount = models.IntegerField(null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2, null=True)
     date = models.DateField(auto_now_add=True)
+    purchase_date = models.DateField(null=True)
 
 
 class StockSale(models.Model):
@@ -31,3 +32,4 @@ class StockSale(models.Model):
     amount = models.IntegerField(null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2, null=True)
     date = models.DateField(auto_now_add=True)
+    sale_date = models.DateField(null=True)

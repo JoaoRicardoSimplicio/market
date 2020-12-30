@@ -1,3 +1,4 @@
+from datetime import datetime
 from systemtools.number import *
 
 from stocks.models import Stock, StockBuy, StockSale
@@ -6,14 +7,19 @@ from stocks.queries import validators
 
 class StockQueries:
 
-    def __init__(self, amount=None, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         if not kwargs["code"]:
             raise Exception("You need to enter the stock code")
         self.code = kwargs["code"]
-        self.amount = amount
-        self.price = kwargs["price"]
-        self.description = kwargs["description"]
+        if "amount" in kwargs:
+            self.amount = kwargs["amount"]
+        if "price" in kwargs:
+            self.price = kwargs["price"]
+        if "description" in kwargs:
+            self.description = kwargs["description"]
         self.stock = self.get_stock_from_db()
+        if "date" in kwargs:
+            self.date = kwargs["date"]
         self._convert_string_fields_to_float()
 
     def get_stock_from_db(self):
@@ -31,7 +37,8 @@ class StockQueries:
         StockBuy.objects.create(
             stock=self.stock,
             price=self.price,
-            amount=self.amount
+            amount=self.amount,
+            purchase_date=self.date
         )
         self.stock.amount += self.amount
         self.stock.save()
@@ -41,7 +48,8 @@ class StockQueries:
         StockSale.objects.create(
             stock=self.stock,
             price=self.price,
-            amount=self.amount
+            amount=self.amount,
+            sale_date=self.date
         )
         self.stock.amount -= self.amount
         self.stock.save()
@@ -59,6 +67,10 @@ class StockQueries:
             raise Exception("You need to enter the stock price")
         if not self.amount:
             raise Exception("You need to enter the stock amount")
+        try:
+            self.date = datetime.strptime(self.date, "%d/%m/%Y")
+        except Exception:
+            self.date = datetime.today()
 
     def _stock_buy_validate(self):
         self._stock_validate()

@@ -15,6 +15,7 @@ from stocks.tasks.stock_tasks import stock_tasks
     default=None,
     required=False
 )
+@click.option('--all', 'task', flag_value='all', help='See all your stocks')
 @click.option('--buy', 'task', flag_value='buy', help='Pass this flag with stock code to buy')
 @click.option('--sell', 'task', flag_value='sell', help='Pass this flag with stock code to sell')
 @click.option(

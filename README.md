@@ -10,6 +10,7 @@ Track and store the value of your stocks and transactions
 Run the following commands:
 
 ```bash
+    $ sudo docker-compose up -d --build     # To start containers
     $ virtualenv env --python=python3.8     # Create a virtual environment called env
     $ source env/bin/activate               # Activate the environment
     $ bash setup.sh                         # setup python
